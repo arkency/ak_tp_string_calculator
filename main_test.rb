@@ -13,12 +13,8 @@ end
 
 
 class Calculator
-  def self.add(foo)
-    sum = 0
-    for number in foo.split(",")
-      sum = sum + number.to_i
-    end
-    sum
+  def self.add(numbers_string)
+    return numbers_string.split(",").map(&:to_i).inject(0, :+)
   end
 
 end
