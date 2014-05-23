@@ -8,6 +8,7 @@ class MainTest < Test::Unit::TestCase
     assert_equal 1, Calculator.add( "1")
     assert_equal 4, Calculator.add( "1,3")
     assert_equal 5, Calculator.add( "1,3, 1")
+    assert_equal 4, Calculator.add( "1\n3")
   end
 
 end
