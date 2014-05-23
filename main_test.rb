@@ -14,7 +14,11 @@ end
 
 class Calculator
   def self.add(foo)
-    foo.to_i
+    sum = 0
+    for number in foo.split(",")
+      sum = sum + number.to_i
+    end
+    sum
   end
 
 end
