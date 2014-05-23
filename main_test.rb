@@ -13,7 +13,7 @@ end
 
 class Calculator
   def self.add(foo)
-    0
+    foo.to_i
   end
 
 end
