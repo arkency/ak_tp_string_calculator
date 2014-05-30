@@ -10,7 +10,7 @@ class MainTest < Test::Unit::TestCase
     assert_equal 5, Calculator.add( "1,3, 1")
     assert_equal 4, Calculator.add( "1\n3")
     assert_equal 6, Calculator.add("//H\n1H5")
-    #assert_equal 7, Calculator.add("//*\n2*5")
+    assert_equal 7, Calculator.add("//*\n2*5")
   end
 
 end
@@ -18,15 +18,27 @@ end
 
 class Calculator
   def self.add(numbers_string)
-    new.add(numbers_string)
+    new.add(NumbersString.new(numbers_string))
   end
 
   def add(numbers_string)
-    numbers_string.split(delimiter_regexp).map(&:to_i).inject(0, :+)
+    numbers_string.sum
   end
+
+end
+
+class NumbersString
+  def initialize(value)
+    @value = value
+  end
+
+  def sum
+    @value.split(delimiter_regexp).map(&:to_i).inject(0, :+)
+  end
+
+  private
 
   def delimiter_regexp
     /(,|\n|H)/
   end
-
 end
