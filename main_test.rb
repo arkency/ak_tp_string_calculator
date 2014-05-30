@@ -17,7 +17,11 @@ end
 
 class Calculator
   def self.add(numbers_string)
-    return numbers_string.split(/(,|\n)/).map(&:to_i).inject(0, :+)
+    return numbers_string.split(delimiter_regexp).map(&:to_i).inject(0, :+)
+  end
+
+  def self.delimiter_regexp
+    /(,|\n|H)/
   end
 
 end
