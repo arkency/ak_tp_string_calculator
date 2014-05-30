@@ -18,10 +18,14 @@ end
 
 class Calculator
   def self.add(numbers_string)
-    return numbers_string.split(delimiter_regexp).map(&:to_i).inject(0, :+)
+    new.add(numbers_string)
   end
 
-  def self.delimiter_regexp
+  def add(numbers_string)
+    numbers_string.split(delimiter_regexp).map(&:to_i).inject(0, :+)
+  end
+
+  def delimiter_regexp
     /(,|\n|H)/
   end
 
