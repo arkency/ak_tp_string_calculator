@@ -10,6 +10,7 @@ class MainTest < Test::Unit::TestCase
     assert_equal 5, Calculator.add( "1,3, 1")
     assert_equal 4, Calculator.add( "1\n3")
     assert_equal 6, Calculator.add("//H\n1H5")
+    #assert_equal 7, Calculator.add("//*\n2*5")
   end
 
 end
