@@ -39,6 +39,13 @@ class NumbersString
   private
 
   def delimiter_regexp
+    return Regexp.new(Regexp.escape(delimeter)) if delimeter
     /(,|\n|H)/
+  end
+
+  def delimeter
+    match = /\/\/(.)/.match(@value)
+    return match[1] if match
+    return false
   end
 end
