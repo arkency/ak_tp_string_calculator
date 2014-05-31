@@ -38,7 +38,12 @@ class NumbersString
   end
 
   def sum
-    @value.split(delimiter_regexp).map(&:to_i).inject(0, :+)
+    raise Calculator::NegativesNotAllowedError.new if numbers.detect{|number| number < 0}
+    numbers.inject(0, :+)
+  end
+
+  def numbers
+    @value.split(delimiter_regexp).map(&:to_i)
   end
 
   private
