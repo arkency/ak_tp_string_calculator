@@ -42,6 +42,8 @@ class NumbersString
     numbers.inject(0, :+)
   end
 
+  private
+
   def negative_detected?
     numbers.detect { |number| number < 0 }
   end
@@ -53,8 +55,6 @@ class NumbersString
   def numbers
     @value.split(delimiter_regexp).map(&:to_i)
   end
-
-  private
 
   def delimiter_regexp
     return Regexp.new(Regexp.escape(delimeter)) if delimeter
