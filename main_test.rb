@@ -38,8 +38,16 @@ class NumbersString
   end
 
   def sum
-    raise Calculator::NegativesNotAllowedError.new if numbers.detect{|number| number < 0}
+    raise_negative if negative_detected?
     numbers.inject(0, :+)
+  end
+
+  def negative_detected?
+    numbers.detect { |number| number < 0 }
+  end
+
+  def raise_negative
+    raise Calculator::NegativesNotAllowedError.new
   end
 
   def numbers
