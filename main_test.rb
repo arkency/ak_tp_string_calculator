@@ -48,11 +48,15 @@ class NumbersString
   private
 
   def negative_detected?
+    !negative.nil?
+  end
+
+  def negative
     numbers.detect { |number| number < 0 }
   end
 
   def raise_negative
-    raise Calculator::NegativesNotAllowedError.new
+    raise Calculator::NegativesNotAllowedError.new("negatives detected: "+negative.to_s)
   end
 
   def numbers
