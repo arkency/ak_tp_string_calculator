@@ -17,6 +17,9 @@ class MainTest < Test::Unit::TestCase
     assert_raise_with_message(Calculator::NegativesNotAllowedError, "negatives detected: -5") do
       Calculator.add("//*\n2*-5")
     end
+    assert_raise_with_message(Calculator::NegativesNotAllowedError, "negatives detected: -5 -1 -3") do
+      Calculator.add("//*\n2*-5*-1*-3")
+    end
   end
 
 end
